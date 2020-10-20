@@ -16,9 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShapes } from '@fortawesome/free-solid-svg-icons'
-import { faServer } from '@fortawesome/free-solid-svg-icons'
-import { faDatabase } from '@fortawesome/free-solid-svg-icons'
+import {faDatabase, faServer, faShapes} from "@fortawesome/free-solid-svg-icons";
 import DataSets from "./dataSets";
 import Apis from "./apis";
 import ModelGenerate from "./modelGenerate";
