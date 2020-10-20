@@ -1,13 +1,9 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import './App.css';
-import './Components/drawer'
+import React from "react";
+import Dashboard from "./Dashboard/Dashboard";
+import "./styles.css";
 import HDrawer from "./Components/drawer";
 
-function App() {
-  return (
-    <HDrawer />
-  );
+export default function App() {
+  // return <HDrawer />;
+  return <Dashboard />;
 }
-
-export default App;

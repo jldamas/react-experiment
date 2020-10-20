@@ -148,15 +148,15 @@ export default function HDrawer() {
                 <Divider />
                 <List>
                     <ListItem button key={"Data Sets"} onClick={() => setComponent('dataSets')}>
-                        <ListItemIcon style={{"padding": 2, "font-size": 20}}><FontAwesomeIcon icon={faDatabase} /></ListItemIcon>
+                        <ListItemIcon style={{"padding": 2, "fontSize": 20}}><FontAwesomeIcon icon={faDatabase} /></ListItemIcon>
                         <ListItemText primary={"Data Sets"} />
                     </ListItem>
                     <ListItem button key={"Models"} onClick={() => setComponent('models')}>
-                        <ListItemIcon  style={{"padding": 2, "font-size": 20}}><FontAwesomeIcon icon={faShapes} /></ListItemIcon>
+                        <ListItemIcon  style={{"padding": 2, "fontSize": 20}}><FontAwesomeIcon icon={faShapes} /></ListItemIcon>
                         <ListItemText primary={"Models"} />
                     </ListItem>
                     <ListItem button key={"APIs"} onClick={() => setComponent('apis')}>
-                    <ListItemIcon  style={{"padding": 2, "font-size": 20}}><FontAwesomeIcon icon={faServer} /></ListItemIcon>
+                    <ListItemIcon  style={{"padding": 2, "fontSize": 20}}><FontAwesomeIcon icon={faServer} /></ListItemIcon>
                     <ListItemText primary={"APIs"} />
                 </ListItem>
 
