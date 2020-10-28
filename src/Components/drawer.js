@@ -125,6 +125,7 @@ export default function HDrawer() {
                     <Typography variant="h6" noWrap>
                         H Machine Learning
                     </Typography>
+
                 </Toolbar>
             </AppBar>
             <Drawer

@@ -7,9 +7,7 @@ import 'fontsource-roboto';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App />,
   document.getElementById('root')
 );
 

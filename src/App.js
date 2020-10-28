@@ -1,13 +1,12 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import './App.css';
-import './Components/drawer'
-import HDrawer from "./Components/drawer";
+import React from "react";
+import "./index.css";
+import SimpleSelect from "./Components/SimpleSelect";
+import {SelectProvider} from "./Components/SelectContext";
 
-function App() {
+export default function App() {
   return (
-    <HDrawer />
+      <SelectProvider>
+        <SimpleSelect />
+      </SelectProvider>
   );
 }
-
-export default App;
