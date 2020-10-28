@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {useSelectDispatch, useSelectState, useSelectValuesDispatch, useSelectValuesState} from "./SelectContext";
+import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -23,64 +24,46 @@ export default function SimpleSelect() {
     const stateValues = useSelectValuesState();
     const dispatchValues = useSelectValuesDispatch();
 
-    const FetchData = async () => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(json => {
-                console.log("FetchData", json)
-                // setSValues(json.map((value) => {
-                //     return {value: value, label: value.name}
-                // }));
-                dispatchValues({type: "changeSelectValues", payload: json})
-                fetch('https://jsonplaceholder.typicode.com/users/2')
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log("FetchDataSelected", json)
-                        //setSelected(json)
-                        //dispatch({type:"changeSelect", payload: {value: json, label: json.name}})
-                        dispatch({type: "changeSelect", payload: json})
-                    })
-            })
-    }
-
-    const FetchDataSelected = async () => {
-        fetch('https://jsonplaceholder.typicode.com/users/2')
-            .then(response => response.json())
-            .then(json => {
-                console.log("FetchDataSelected", json)
-                //setSelected(json)
-                //dispatch({type:"changeSelect", payload: {value: json, label: json.name}})
-                dispatch({type: "changeSelect", payload: json})
-            })
-    }
-
+    //Go get the data for the states
     useEffect(() => {
+        const FetchData = async () => {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(values => {
+                    console.log("FetchData", values)
+                    dispatchValues({type: "changeSelectValues", payload: values})
+                    FetchDataSelected(values);
+                })
+        }
+        const FetchDataSelected = async (values) => {
+            fetch('https://jsonplaceholder.typicode.com/users/2')
+                .then(response => response.json())
+                .then(json => {
+                    console.log("FetchDataSelected", json)
+                    dispatch({type: "changeSelect", payload: _.find(values, json)})
+                })
+        }
+
         FetchData()// the function fetching the data
-    }, [])
-
-    useEffect(() => {
-        // FetchDataSelected()// the function fetching the data
-    }, [])
+    }, [dispatch, dispatchValues])
 
     const handleChange = (event) => {
-        //dispatch({type:"changeSelect", payload: {value: event.target.value, label: event.target.value.name}})
         console.log("handling selection", event.target.value)
         dispatch({type: "changeSelect", payload: event.target.value})
-        //setSelected(event.target.value)
     };
 
     return (
         <div>
             <div>State:</div>
-            <code>{JSON.stringify(selectedState)}</code>
-            <div>Selection values:</div>
-            <code>{JSON.stringify(stateValues)}</code>
+            <p>{JSON.stringify(selectedState)}</p>
+
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-simple-select-label">Name</InputLabel>
 
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
+                    name="nameSelect"
                     value={selectedState}
                     renderValue={(value) => value.name}
                     onChange={(event) => handleChange(event)}

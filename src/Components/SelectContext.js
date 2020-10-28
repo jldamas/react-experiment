@@ -6,9 +6,7 @@ const SelectDispatchContext = React.createContext()
 const SelectValuesStateContext = React.createContext()
 const SelectValuesDispatchContext = React.createContext()
 
-const initialState = {
-        "name": "None"
-    }
+const initialState = ""
 
 const initialStateValues = [initialState]
 
