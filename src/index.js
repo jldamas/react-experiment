@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'fontsource-roboto';
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
 ReactDOM.render(
     <App />,
